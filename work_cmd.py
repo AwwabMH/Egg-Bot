@@ -35,40 +35,46 @@ async def new_work(ctx):
     view.add_item(btn3)
 
     async def btn1call(interaction: discord.Interaction):
-        mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'employment':str(comps.av_jobs[0])}})
-        embedvar1 = discord.Embed(
-            description = "Your Interview went great! You've been hired by " + str(comps.av_conts[0]),
-            color = discord.Color.brand_green()
-        )
-        btn1.disabled = True
-        btn2.disabled = True
-        btn3.disabled = True
-        await interaction.response.edit_message(embed=embedvar, view=view)
-        await interaction.followup.send(embed=embedvar1)
+        if user_egg_id == interaction.user.id:
+            mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'employment':str(comps.av_jobs[0])}})
+            embedvar1 = discord.Embed(
+                description = "Your Interview went great! You've been hired by " + str(comps.av_conts[0]),
+                color = discord.Color.brand_green()
+            )
+            embedvar1.set_footer(text = "Requested By " + ctx.author.name, icon_url=ctx.author.avatar.url)
+            btn1.disabled = True
+            btn2.disabled = True
+            btn3.disabled = True
+            await interaction.response.edit_message(embed=embedvar1, view=view)
+            await interaction.followup.send(embed=embedvar1)
 
     async def btn2call(interaction: discord.Interaction):
-        mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'employment':str(comps.av_jobs[1])}})
-        embedvar1 = discord.Embed(
-            description = "Your Interview went great! You've been hired by " + str(comps.av_conts[1]),
-            color = discord.Color.brand_green()
-        )
-        btn1.disabled = True
-        btn2.disabled = True
-        btn3.disabled = True
-        await interaction.response.edit_message(embed=embedvar, view=view)
-        await interaction.followup.send(embed=embedvar1)
+        if user_egg_id == interaction.user.id:
+            mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'employment':str(comps.av_jobs[1])}})
+            embedvar1 = discord.Embed(
+                description = "Your Interview went great! You've been hired by " + str(comps.av_conts[1]),
+                color = discord.Color.brand_green()
+            )
+            embedvar1.set_footer(text = "Requested By " + ctx.author.name, icon_url=ctx.author.avatar.url)
+            btn1.disabled = True
+            btn2.disabled = True
+            btn3.disabled = True
+            await interaction.response.edit_message(embed=embedvar, view=view)
+            await interaction.followup.send(embed=embedvar1)
 
     async def btn3call(interaction: discord.Interaction):
-        mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'employment':str(comps.av_jobs[2])}})
-        embedvar1 = discord.Embed(
-            description = "Your Interview went great! You've been hired by " + str(comps.av_conts[2]),
-            color = discord.Color.brand_green()
-        )
-        btn1.disabled = True
-        btn2.disabled = True
-        btn3.disabled = True
-        await interaction.response.edit_message(embed=embedvar, view=view)
-        await interaction.followup.send(embed=embedvar1)
+        if user_egg_id == interaction.user.id:
+            mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'employment':str(comps.av_jobs[2])}})
+            embedvar1 = discord.Embed(
+                description = "Your Interview went great! You've been hired by " + str(comps.av_conts[2]),
+                color = discord.Color.brand_green()
+            )
+            embedvar1.set_footer(text = "Requested By " + ctx.author.name, icon_url=ctx.author.avatar.url)
+            btn1.disabled = True
+            btn2.disabled = True
+            btn3.disabled = True
+            await interaction.response.edit_message(embed=embedvar, view=view)
+            await interaction.followup.send(embed=embedvar1)
     
     btn1.callback = btn1call
     btn2.callback = btn2call
