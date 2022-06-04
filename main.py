@@ -82,4 +82,4 @@ async def on_application_command(ctx):
 
 
 
-bot.run("OTc2ODY3NDU0NDQ3OTMxNDQy.GC958J.VvN1emiLDzjbte74eudV5pg0l1Z_CefkiC4ud8")
+bot.run(TOKEN)
