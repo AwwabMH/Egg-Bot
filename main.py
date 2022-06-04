@@ -3,7 +3,7 @@ from discord.ext import bridge
 from discord.ext import commands
 import mongo_db as mongo
 import work_cmd as work
-import joke_cmd as joke
+import joke_cmd as jokecmd
 import balance_cmd
 # Imports
 
@@ -39,7 +39,7 @@ async def balance(ctx):
 
 @bot.bridge_command(description='Gets you a funny dad joke!')
 async def joke(ctx):
-    await ctx.respond(embed=joke.get_joke())
+    await ctx.respond(embed=jokecmd.get_joke())
 # Requests a joke from an API and sends it
 
 
@@ -82,4 +82,4 @@ async def on_application_command(ctx):
 
 
 
-bot.run(TOKEN)
+bot.run("OTc2ODY3NDU0NDQ3OTMxNDQy.GC958J.VvN1emiLDzjbte74eudV5pg0l1Z_CefkiC4ud8")

@@ -80,11 +80,11 @@ async def new_work(ctx):
 
 
 
-async def work(ctx):
+def work(ctx):
     user_egg_id = ctx.author.id
     try:
         if mongo.users.find_one({'user_id':user_egg_id})['employment'] == "unemployed":
-            await new_work(ctx)
+            return new_work(ctx)
         else:
             user_database_entry = mongo.users.find_one({'user_id':user_egg_id})
             eggs_gained = random.randint(2,10)
@@ -95,6 +95,6 @@ async def work(ctx):
                 color = discord.Color.gold()
             )
             embedvar.set_footer(text = "Requested By " + ctx.author.name, icon_url=ctx.author.avatar.url)
-            await ctx.respond(embed = embedvar)
+            return ctx.respond(embed = embedvar)
     except:
-           await new_work(ctx)
+           return new_work(ctx)
