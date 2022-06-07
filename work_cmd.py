@@ -95,7 +95,8 @@ def work(ctx):
             user_database_entry = mongo.users.find_one({'user_id':user_egg_id})
             eggs_gained = random.randint(2,10)
             balance = int(user_database_entry['balance']) + eggs_gained
-            mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'balance':balance}})
+            net_worth = int(user_database_entry['net_worth']) + eggs_gained
+            mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'balance':balance, 'net_worth':net_worth}})
             embedvar = discord.Embed(
                 description = "You worked as a Chicken farmer and recieved " + str(eggs_gained) + " 🥚s!",
                 color = discord.Color.gold()
