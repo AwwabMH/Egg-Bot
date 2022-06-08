@@ -14,7 +14,6 @@ def xp_gain_message(message):
         user_level = user['level']
         message_time = user['last_message']
         delta_time = message.created_at.replace(tzinfo=None) - message_time
-        print(delta_time.total_seconds())
         if abs(delta_time.total_seconds()) >= 2:
             mongo.users.update_one({'user_id':user_egg_id}, {'$set':{'last_message':message.created_at}})
             user_xp = user['xp']

@@ -84,7 +84,7 @@ async def on_application_command(ctx):
 
 
 @bot.listen('on_message')
-async def on_message2(message):
+async def on_message_level_checker(message):
     if message.author != bot.user:
         rl.tarcheck(message)
 
@@ -110,9 +110,20 @@ async def on_application_command_error(ctx, error):
         raise error
 # Error checker for command cooldown
 
-
-
-
+@bot.listen('on_message')
+async def on_message_link_checker(message):
+    if message.author != bot.user:
+        if "https://" in message.content:
+            embedvar = discord.Embed(
+                color = discord.Color.red(),
+                description = "Please don't post links in this channel!"
+            )
+            await message.delete(reason = "link detection")
+            if message.author.dm_channel == None:
+                await message.author.create_dm()
+                await message.author.send(embed=embedvar)
+            else:
+                await message.author.send(embed=embedvar)
 
 
 bot.run(environ['Token'])
