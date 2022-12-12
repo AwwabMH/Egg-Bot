@@ -16,7 +16,7 @@ Egg-bot currently has the following functionality (to be expanded on):
  3) A profanity and anti-NSFW detector that can be customized
  4) An anti-URL detector
  5) A title and ranking system to distinguish between active users (based on user balance and level)
- 6) A fully-fledged economy with a curreny (Eggs) based on working jobs
+ 6) A fully-fledged economy with a currency (Eggs) based on working jobs
  7) A job and contractor system where users can get hired for different jobs in different companies for different benefits and salaries
  8) A balance command to display the user's current Egg count
  
